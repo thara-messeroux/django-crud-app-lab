@@ -75,10 +75,12 @@ WSGI_APPLICATION = 'trailtales.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # Use PostgreSQL so TrailTales can store real app data.
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'trailtales',
     }
 }
+
 
 
 # Password validation
