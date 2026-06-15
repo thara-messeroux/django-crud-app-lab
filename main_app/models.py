@@ -6,6 +6,10 @@ class Category(models.Model):
     # Stores a short label that helps organize discoveries.
     name = models.CharField(max_length=100)
 
+    class Meta:
+        # Shows the correct plural name in Django admin.
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         # Shows the category name instead of a confusing object label.
         return self.name
@@ -33,7 +37,7 @@ class Discovery(models.Model):
     # Stores an optional image link without forcing users to upload a file.
     image_url = models.URLField(blank=True)
 
-    # Connects each discovery to one category, like Animal or Rock Formation.
+    # Connects each discovery to one organized category.
     # PROTECT prevents deleting a category if discoveries still use it.
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
@@ -43,7 +47,10 @@ class Discovery(models.Model):
     # Saves the time this discovery was first created.
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        # Shows the correct plural name in Django admin.
+        verbose_name_plural = 'Discoveries'
+
     def __str__(self):
         # Shows the discovery title in admin and debugging tools.
         return self.title
-    
