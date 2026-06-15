@@ -34,7 +34,8 @@ class Discovery(models.Model):
     image_url = models.URLField(blank=True)
 
     # Connects each discovery to one category, like Animal or Rock Formation.
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # PROTECT prevents deleting a category if discoveries still use it.
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     # Connects each discovery to the user who created it.
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -45,5 +46,4 @@ class Discovery(models.Model):
     def __str__(self):
         # Shows the discovery title in admin and debugging tools.
         return self.title
-    
     
