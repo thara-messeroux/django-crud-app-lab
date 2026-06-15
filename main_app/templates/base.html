@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Helps the layout work well on phones and desktops. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loads the Joshua Tree inspired stylesheet. -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>TrailTales</title>
+</head>
+<body>
+    <!-- Shared navigation used across TrailTales pages. -->
+    <header>
+        <nav>
+            <a href="/">TrailTales</a>
+            <a href="/discoveries/">Discoveries</a>
+            <a href="/admin/">Admin</a>
+        </nav>
+    </header>
+
+    <!-- Each page places its unique content here. -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

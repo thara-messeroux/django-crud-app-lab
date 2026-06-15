@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+
+<!-- Adds TrailTales brand styling to Django admin. -->
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

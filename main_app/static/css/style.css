@@ -1,0 +1,217 @@
+:root {
+    /* Joshua Tree palette inspired by your reference image. */
+    --desert-brown: #6E3C1F;
+    --burnt-clay: #9A5F34;
+    --warm-sand: #B88658;
+    --dusty-sage: #C7C9B8;
+    --stone-taupe: #B8AE92;
+    --stone-gray: #97917A;
+    --soft-cream: #F6F0E2;
+    --panel-cream: #F3EBDD;
+    --ink: #221712;
+    --muted: #6B6254;
+    --white: #FFFFFF;
+    --border: #D6CCB8;
+    --shadow: 0 18px 40px rgba(34, 23, 18, 0.08);
+}
+
+* {
+    /* Makes sizing easier to manage everywhere. */
+    box-sizing: border-box;
+}
+
+html, body {
+    /* Removes unwanted spacing and keeps page height stable. */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Simple, clean background to remove the odd horizontal band. */
+    font-family: Inter, Arial, sans-serif;
+    background: var(--soft-cream);
+    color: var(--ink);
+}
+
+header {
+    /* Warm branded top navigation bar. */
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(110, 60, 31, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+nav {
+    /* Centers nav content and gives clean spacing. */
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+}
+
+nav a {
+    /* Makes navigation links readable and strong. */
+    color: var(--soft-cream);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    /* Soft hover state for better feedback. */
+    color: var(--dusty-sage);
+}
+
+main {
+    /* Keeps content centered and comfortable to read. */
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 3rem 0 4rem;
+}
+
+.hero {
+    /* Gives the homepage breathing room without adding visual artifacts. */
+    padding: 2rem 0;
+}
+
+.glass-panel {
+    /* Soft premium panel without overdoing the glass effect. */
+    background: rgba(243, 235, 221, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 32px;
+    box-shadow: var(--shadow);
+    padding: clamp(2rem, 5vw, 4rem);
+}
+
+.eyebrow {
+    /* Small uppercase label for hierarchy. */
+    color: var(--burnt-clay);
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    /* Large bold headline for strong product storytelling. */
+    font-size: clamp(3rem, 8vw, 6.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    margin: 0 0 1.25rem;
+}
+
+h2 {
+    /* Clear card and section titles. */
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.75rem;
+}
+
+p {
+    /* Improves reading comfort across the site. */
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-top: 0;
+}
+
+.lede {
+    /* Softer intro paragraph for supporting copy. */
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 1.18rem;
+}
+
+.button-link {
+    /* Primary action button. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.25rem;
+    padding: 0.95rem 1.35rem;
+    background: var(--desert-brown);
+    color: var(--soft-cream);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(110, 60, 31, 0.18);
+}
+
+.button-link:hover {
+    /* Clear but calm hover state. */
+    background: var(--burnt-clay);
+}
+
+.page-header {
+    /* Intro block for secondary pages. */
+    max-width: 820px;
+    margin-bottom: 2rem;
+}
+
+.card-grid {
+    /* Responsive layout for discovery cards. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.discovery-card,
+.empty-state {
+    /* Clean, readable content cards. */
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.category-pill {
+    /* Quick category label. */
+    display: inline-block;
+    background: var(--dusty-sage);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 0.42rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.meta {
+    /* Secondary information styling. */
+    color: var(--stone-gray);
+    font-weight: 800;
+}
+
+.tip-box {
+    /* Highlights safety content with good contrast. */
+    background: var(--panel-cream);
+    border-left: 5px solid var(--burnt-clay);
+    border-radius: 16px;
+    padding: 0.95rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 700px) {
+    nav {
+        /* Prevents nav from feeling cramped on mobile. */
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    main {
+        /* Comfortable mobile spacing. */
+        padding: 2rem 0 3rem;
+    }
+
+    .glass-panel {
+        /* Slightly tighter card spacing for small screens. */
+        border-radius: 24px;
+        padding: 1.5rem;
+    }
+}

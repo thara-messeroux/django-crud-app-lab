@@ -21,3 +21,7 @@ class DiscoveryAdmin(admin.ModelAdmin):
 
     # Helps us search discoveries by meaningful content.
     search_fields = ('title', 'location', 'description')
+# Gives Django admin a TrailTales-branded identity.
+admin.site.site_header = 'TrailTales Admin'
+admin.site.site_title = 'TrailTales Admin'
+admin.site.index_title = 'Manage TrailTales'
