@@ -419,3 +419,84 @@ p {
         height: 210px;
     }
 }
+
+/* Modern square-ish discovery cards */
+.card-grid {
+    /* Wider cards = less tall, more premium product layout. */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.4rem;
+}
+
+.discovery-card {
+    /* Softer liquid-glass card with cleaner proportions. */
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(214, 204, 184, 0.85);
+    border-radius: 30px;
+    box-shadow: 0 18px 45px rgba(34, 23, 18, 0.10);
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+}
+
+.card-image {
+    /* Shorter image keeps the card from feeling too long. */
+    height: 220px;
+    border-radius: 0;
+}
+
+.card-content {
+    /* Tighter spacing makes the card feel more balanced. */
+    padding: 1.25rem;
+}
+
+.discovery-card h2 {
+    /* Slightly smaller title prevents cards from becoming too tall. */
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    line-height: 0.98;
+    margin-bottom: 0.75rem;
+}
+
+.discovery-card p {
+    /* Keeps body copy compact but readable. */
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
+.discovery-card .meta {
+    /* Keeps metadata useful without taking too much vertical space. */
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.discovery-card .tip-box {
+    /* Compact safety box with enough breathing room. */
+    padding: 0.8rem;
+    margin-top: 0.9rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.discovery-card .text-link {
+    /* Clean card action spacing. */
+    display: inline-flex;
+    margin-top: 0.35rem;
+}
+
+@media (min-width: 1100px) {
+    .card-grid {
+        /* Keeps desktop cards more square by showing 3 balanced columns. */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .card-grid {
+        /* Keeps mobile cards comfortable and full width. */
+        grid-template-columns: 1fr;
+    }
+
+    .card-image {
+        /* Mobile image remains proportional. */
+        height: 210px;
+    }
+}
