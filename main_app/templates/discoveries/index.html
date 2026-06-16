@@ -16,16 +16,23 @@
 <section class="card-grid">
     {% for discovery in discoveries %}
         <article class="discovery-card">
-            <p class="category-pill">{{ discovery.category }}</p>
-            <h2>{{ discovery.title }}</h2>
-            <p class="meta">{{ discovery.location }} · {{ discovery.date_seen }}</p>
-            <p>{{ discovery.description|truncatewords:24 }}</p>
+            {% if discovery.image_url %}
+                <!-- Gives each discovery a strong visual journal feeling. -->
+                <img class="card-image" src="{{ discovery.image_url }}" alt="{{ discovery.title }}">
+            {% endif %}
 
-            <div class="tip-box">
-                <strong>Safety:</strong> {{ discovery.safety_tip|truncatewords:18 }}
+            <div class="card-content">
+                <p class="category-pill">{{ discovery.category }}</p>
+                <h2>{{ discovery.title }}</h2>
+                <p class="meta">{{ discovery.location }} · {{ discovery.date_seen }}</p>
+                <p>{{ discovery.description|truncatewords:24 }}</p>
+
+                <div class="tip-box">
+                    <strong>Safety:</strong> {{ discovery.safety_tip|truncatewords:18 }}
+                </div>
+
+                <a class="text-link" href="{% url 'discovery-detail' discovery.id %}">View details</a>
             </div>
-
-            <a class="text-link" href="{% url 'discovery-detail' discovery.id %}">View details</a>
         </article>
     {% empty %}
         <article class="empty-state">
