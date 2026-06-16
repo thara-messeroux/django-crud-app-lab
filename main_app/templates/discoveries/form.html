@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-shell">
+    <div class="glass-panel">
+        <p class="eyebrow">TrailTales journal</p>
+        <h1>{{ page_title }}</h1>
+
+        <form method="post" class="app-form">
+            {% csrf_token %}
+
+            <!-- Django renders the form fields from DiscoveryForm. -->
+            {{ form.as_p }}
+
+            <button class="button-link" type="submit">{{ button_text }}</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

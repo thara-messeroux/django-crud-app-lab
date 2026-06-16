@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-shell">
+    <div class="glass-panel">
+        <p class="eyebrow">Confirm delete</p>
+        <h1>Delete {{ discovery.title }}?</h1>
+
+        <p>
+            This will permanently remove this discovery from your TrailTales journal.
+        </p>
+
+        <form method="post" class="action-row">
+            {% csrf_token %}
+            <button class="danger-button" type="submit">Yes, delete it</button>
+            <a class="text-link" href="{% url 'discovery-detail' discovery.id %}">Cancel</a>
+        </form>
+    </div>
+</section>
+{% endblock %}

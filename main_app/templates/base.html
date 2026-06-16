@@ -14,12 +14,27 @@
     <title>TrailTales</title>
 </head>
 <body>
-    <!-- Shared navigation used across TrailTales pages. -->
+    <!-- Shared navigation for the full TrailTales experience. -->
     <header>
         <nav>
             <a href="/">TrailTales</a>
             <a href="/discoveries/">Discoveries</a>
+            <a href="/discoveries/new/">Add Discovery</a>
             <a href="/admin/">Admin</a>
+
+            <span class="nav-spacer"></span>
+
+            {% if user.is_authenticated %}
+                <span class="nav-user">Hi, {{ user.username }}</span>
+
+                <form class="logout-form" action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Log out</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Log in</a>
+                <a href="{% url 'signup' %}">Sign up</a>
+            {% endif %}
         </nav>
     </header>
 

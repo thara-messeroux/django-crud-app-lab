@@ -3,9 +3,12 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    # Opens Django's built-in admin dashboard.
+    # Django admin dashboard.
     path('admin/', admin.site.urls),
 
-    # Sends normal website pages to main_app.
+    # Django built-in login/logout routes.
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    # TrailTales app pages.
     path('', include('main_app.urls')),
 ]

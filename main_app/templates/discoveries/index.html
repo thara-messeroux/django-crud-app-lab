@@ -2,40 +2,39 @@
 
 {% block content %}
 <section class="page-header">
-    <!-- Clear page label for hierarchy. -->
     <p class="eyebrow">Trail journal</p>
-
-    <!-- Main page title. -->
     <h1>Saved Discoveries</h1>
 
-    <!-- Explains what users can expect on this page. -->
     <p class="lede">
-        Explore saved Joshua Tree trail moments, nature notes, safety reminders,
+        Explore your saved Joshua Tree trail moments, nature notes, safety reminders,
         and preservation tips.
     </p>
+
+    <a class="button-link" href="{% url 'discovery-create' %}">Add a discovery</a>
 </section>
 
 <section class="card-grid">
     {% for discovery in discoveries %}
-        <!-- Each card helps users scan one saved trail discovery quickly. -->
         <article class="discovery-card">
             <p class="category-pill">{{ discovery.category }}</p>
             <h2>{{ discovery.title }}</h2>
             <p class="meta">{{ discovery.location }} · {{ discovery.date_seen }}</p>
-            <p>{{ discovery.description }}</p>
+            <p>{{ discovery.description|truncatewords:24 }}</p>
 
             <div class="tip-box">
-                <strong>Safety:</strong> {{ discovery.safety_tip }}
+                <strong>Safety:</strong> {{ discovery.safety_tip|truncatewords:18 }}
             </div>
+
+            <a class="text-link" href="{% url 'discovery-detail' discovery.id %}">View details</a>
         </article>
     {% empty %}
-        <!-- Friendly empty state for new users with no discoveries yet. -->
         <article class="empty-state">
             <h2>No discoveries yet</h2>
             <p>
                 Start your TrailTales journal by adding animals, plants, rocks,
                 scenic views, or safety notes from your Joshua Tree adventure.
             </p>
+            <a class="button-link" href="{% url 'discovery-create' %}">Add your first discovery</a>
         </article>
     {% endfor %}
 </section>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-shell">
+    <div class="glass-panel">
+        <p class="eyebrow">Start your journal</p>
+        <h1>Sign up</h1>
+
+        <form method="post" class="app-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="button-link" type="submit">Create account</button>
+        </form>
+
+        <p>
+            Already have an account?
+            <a class="text-link" href="{% url 'login' %}">Log in</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

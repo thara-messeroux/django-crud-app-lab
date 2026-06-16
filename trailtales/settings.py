@@ -118,3 +118,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Sends users to their discovery journal after login.
+LOGIN_REDIRECT_URL = 'discovery-index'
+
+# Sends users back home after logout.
+LOGOUT_REDIRECT_URL = 'home'
+
+# Sends protected pages to the login screen when needed.
+LOGIN_URL = 'login'

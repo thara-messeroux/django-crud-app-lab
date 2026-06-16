@@ -215,3 +215,150 @@ p {
         padding: 1.5rem;
     }
 }
+
+.nav-spacer {
+    /* Pushes account links to the right side of the navbar. */
+    margin-left: auto;
+}
+
+.nav-user {
+    /* Shows the logged-in user without overpowering navigation. */
+    color: var(--soft-cream);
+    font-weight: 800;
+}
+
+.logout-form {
+    /* Keeps logout button aligned with nav links. */
+    margin: 0;
+}
+
+.logout-form button {
+    /* Makes logout look like a clean nav action. */
+    background: transparent;
+    border: none;
+    color: var(--soft-cream);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    padding: 0;
+}
+
+.logout-form button:hover {
+    /* Adds clear feedback. */
+    color: var(--dusty-sage);
+}
+
+.text-link {
+    /* Secondary link style used inside content cards. */
+    color: var(--desert-brown);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    /* Makes text links feel interactive. */
+    color: var(--burnt-clay);
+}
+
+.detail-layout,
+.form-shell {
+    /* Keeps detail and form pages readable and centered. */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.discovery-image {
+    /* Keeps optional images responsive and polished. */
+    width: 100%;
+    border-radius: 24px;
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.action-row {
+    /* Groups action links/buttons cleanly. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.danger-link {
+    /* Makes destructive actions visible but not loud. */
+    color: #8A2E1D;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.danger-button {
+    /* Clear delete button with strong contrast. */
+    background: #8A2E1D;
+    color: var(--soft-cream);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 900;
+    padding: 0.95rem 1.35rem;
+}
+
+.app-form {
+    /* Keeps forms clean and easy to scan. */
+    display: grid;
+    gap: 1rem;
+}
+
+.app-form p {
+    /* Keeps Django-rendered fields neatly spaced. */
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+.app-form label {
+    /* Makes form labels readable and clear. */
+    font-weight: 900;
+}
+
+.app-form input,
+.app-form textarea,
+.app-form select {
+    /* Creates modern accessible form fields. */
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    font: inherit;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--ink);
+}
+
+.app-form input:focus,
+.app-form textarea:focus,
+.app-form select:focus {
+    /* Gives keyboard users a visible focus state. */
+    outline: 3px solid rgba(154, 95, 52, 0.25);
+    border-color: var(--burnt-clay);
+}
+
+.preservation {
+    /* Uses sage tone to separate preservation from safety. */
+    border-left-color: var(--stone-gray);
+}
+
+.discovery-card .text-link {
+    /* Adds breathing room so "View details" does not crowd the safety box. */
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.discovery-card .tip-box {
+    /* Adds clear space after the safety note before the next action link. */
+    margin-bottom: 1.25rem;
+}
+
+.discovery-card .text-link {
+    /* Makes the details link feel like its own action, not part of the safety box. */
+    display: inline-flex;
+    margin-top: 0.25rem;
+}

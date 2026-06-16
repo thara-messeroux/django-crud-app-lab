@@ -1,37 +1,35 @@
 :root {
-    /* Joshua Tree admin palette with accessibility in mind. */
+    /* Accessible Joshua Tree admin palette. */
     --admin-brown: #6E3C1F;
     --admin-brown-dark: #5A2F1D;
     --admin-clay: #9A5F34;
-    --admin-sand: #B88658;
-    --admin-sage: #C7C9B8;
-    --admin-stone: #B8AE92;
     --admin-cream: #F6F0E2;
-    --admin-panel: #F8F5EE;
+    --admin-panel: #FBF8F0;
     --admin-border: #D4C8B3;
     --admin-ink: #231913;
     --admin-muted: #5E5447;
-    --admin-link: #3E6F94;
-    --admin-link-hover: #2E5672;
-    --admin-white: #FFFFFF;
+    --admin-link: #2E6688;
+    --admin-link-hover: #1F4B66;
 }
 
 body {
-    /* Clean background with strong readability. */
+    /* Warm desert background with strong readability. */
     background: var(--admin-cream);
     color: var(--admin-ink);
 }
 
 #header {
-    /* Brand the admin clearly while keeping contrast strong. */
+    /* Clean branded admin header. */
     background: var(--admin-brown);
     color: var(--admin-cream);
+    min-height: 72px;
+    padding: 0 32px;
 }
 
 #branding h1,
 #branding h1 a:link,
 #branding h1 a:visited {
-    /* Makes the admin title readable and branded. */
+    /* Branded title with high contrast. */
     color: #F7DC66;
     font-weight: 800;
 }
@@ -40,24 +38,55 @@ body {
 #user-tools a,
 #user-tools a:link,
 #user-tools a:visited {
-    /* Keeps top-right utility links readable. */
+    /* Keeps utility links readable. */
     color: var(--admin-cream);
 }
 
 #user-tools a:hover {
-    /* Clear hover state. */
-    color: var(--admin-sage);
+    /* Soft hover feedback. */
+    color: #F7DC66;
+}
+
+.trailtales-admin-subnav {
+    /* Slim product nav that does not fight the admin layout. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.85rem 32px;
+    background: #EFE4D2;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.trailtales-admin-subnav a {
+    /* Small readable pill links for quick movement. */
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--admin-brown-dark);
+    border: 1px solid var(--admin-border);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.trailtales-admin-subnav a:hover {
+    /* Clear hover state with good contrast. */
+    background: var(--admin-brown);
+    color: var(--admin-cream);
 }
 
 div.breadcrumbs {
-    /* Branded secondary bar. */
+    /* Keeps secondary admin navigation branded. */
     background: var(--admin-clay);
     color: var(--admin-cream);
 }
 
 a:link,
 a:visited {
-    /* Accessible link color. */
+    /* Accessible admin links. */
     color: var(--admin-link);
 }
 
@@ -67,35 +96,34 @@ a:hover {
 }
 
 #content {
-    /* Better spacing around the main admin area. */
-    padding: 24px 30px;
+    /* Comfortable content spacing. */
+    padding: 32px;
+}
+
+.dashboard #content {
+    /* Keeps dashboard layout balanced. */
+    max-width: 1400px;
 }
 
 .dashboard .module,
 .module,
 #content-related .module,
 #content-related {
-    /* Light cards with clear contrast and soft rounding. */
+    /* Clean light cards with readable contrast. */
     background: var(--admin-panel);
     border: 1px solid var(--admin-border);
-    border-radius: 24px;
+    border-radius: 22px;
     box-shadow: 0 10px 24px rgba(35, 25, 19, 0.06);
     overflow: hidden;
-}
-
-.dashboard .module table,
-.module table {
-    /* Keeps table layout clean. */
-    background: transparent;
 }
 
 .module h2,
 .module caption,
 .inline-group h2 {
-    /* Section headers with strong contrast. */
+    /* Strong readable section headers. */
     background: var(--admin-brown-dark);
     color: var(--admin-cream);
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.04em;
 }
 
@@ -103,7 +131,7 @@ a:hover {
 .dashboard .module td,
 .module th,
 .module td {
-    /* Makes row content readable. */
+    /* Keeps table rows readable. */
     color: var(--admin-ink);
     border-color: var(--admin-border);
     background: transparent;
@@ -111,12 +139,25 @@ a:hover {
 
 .row1,
 .row2 {
-    /* Prevents dark unreadable alternating rows. */
+    /* Prevents unreadable dark rows. */
     background: transparent;
 }
 
+#content-related {
+    /* Removes awkward extra card-within-card spacing. */
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#content-related .module {
+    /* Makes Recent actions a normal readable card. */
+    background: var(--admin-panel);
+}
+
 #content-related .module h2 {
-    /* Keeps recent actions card heading readable. */
+    /* Recent actions title stays readable. */
     background: transparent;
     color: var(--admin-ink);
     border-bottom: 1px solid var(--admin-border);
@@ -124,15 +165,10 @@ a:hover {
     letter-spacing: normal;
 }
 
-#content-related .module {
-    /* Ensures recent actions card stays light and readable. */
-    background: var(--admin-panel);
-}
-
-#content-related .module ul,
+#content-related .module h3,
 #content-related .module p,
-#content-related .module h3 {
-    /* Better contrast inside the sidebar card. */
+#content-related .module ul {
+    /* Fixes low-contrast sidebar text. */
     color: var(--admin-ink);
 }
 
@@ -141,7 +177,7 @@ input[type=submit],
 input[type=button],
 .submit-row input,
 a.button {
-    /* Consistent admin buttons. */
+    /* Consistent admin action buttons. */
     background: var(--admin-brown);
     color: var(--admin-cream);
     border: none;
@@ -154,7 +190,7 @@ a.button {
 input[type=submit]:hover,
 input[type=button]:hover,
 a.button:hover {
-    /* Hover feedback for actions. */
+    /* Warm hover state. */
     background: var(--admin-clay);
     color: var(--admin-cream);
 }
@@ -162,7 +198,7 @@ a.button:hover {
 input,
 textarea,
 select {
-    /* Improves form clarity. */
+    /* Modern readable form fields. */
     border-radius: 12px;
     border: 1px solid var(--admin-border);
 }
@@ -171,14 +207,30 @@ input:focus,
 textarea:focus,
 select:focus,
 a:focus {
-    /* Accessible focus state for keyboard users. */
-    outline: 3px solid rgba(62, 111, 148, 0.25);
+    /* Accessible keyboard focus state. */
+    outline: 3px solid rgba(46, 102, 136, 0.25);
     outline-offset: 2px;
 }
 
 @media (max-width: 900px) {
-    #content {
-        /* Keeps the admin comfortable on smaller screens. */
-        padding: 18px;
+    #header {
+        /* Keeps header usable on small screens. */
+        padding: 0 18px;
     }
+
+    .trailtales-admin-subnav {
+        /* Keeps subnav comfortable on mobile. */
+        padding: 0.75rem 18px;
+    }
+
+    #content {
+        /* Prevents cramped mobile admin layout. */
+        padding: 20px;
+    }
+}
+
+.trailtales-admin-nav,
+.trailtales-admin-subnav {
+    /* Removes the old custom admin nav because it created poor UX in Django admin. */
+    display: none !important;
 }
