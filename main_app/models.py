@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
-    # Stores a short label that helps organize discoveries.
+    # Stores one main label that organizes each discovery.
     name = models.CharField(max_length=100)
 
     class Meta:
@@ -12,6 +12,19 @@ class Category(models.Model):
 
     def __str__(self):
         # Shows the category name instead of a confusing object label.
+        return self.name
+
+
+class Tag(models.Model):
+    # Stores flexible reusable labels like scenic, safety, wildlife, or sunset.
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        # Keeps tags ordered and readable in admin.
+        ordering = ['name']
+
+    def __str__(self):
+        # Shows the tag name clearly in forms and admin.
         return self.name
 
 
@@ -37,9 +50,13 @@ class Discovery(models.Model):
     # Stores an optional image link without forcing users to upload a file.
     image_url = models.URLField(blank=True)
 
-    # Connects each discovery to one organized category.
+    # One category can organize many discoveries.
     # PROTECT prevents deleting a category if discoveries still use it.
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
+
+    # Many discoveries can share many tags.
+    # Example: scenic, wildlife, safety, sunset.
+    tags = models.ManyToManyField(Tag, blank=True)
 
     # Connects each discovery to the user who created it.
     user = models.ForeignKey(User, on_delete=models.CASCADE)

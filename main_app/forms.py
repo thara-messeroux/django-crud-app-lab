@@ -11,6 +11,7 @@ class DiscoveryForm(forms.ModelForm):
         fields = [
             'title',
             'category',
+            'tags',
             'location',
             'date_seen',
             'description',
@@ -20,6 +21,9 @@ class DiscoveryForm(forms.ModelForm):
         ]
 
         widgets = {
+            # Uses checkboxes because tags are flexible multi-select labels.
+            'tags': forms.CheckboxSelectMultiple,
+
             # Uses a friendly date picker in modern browsers.
             'date_seen': forms.DateInput(attrs={'type': 'date'}),
 

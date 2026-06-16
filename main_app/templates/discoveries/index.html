@@ -23,6 +23,12 @@
 
             <div class="card-content">
                 <p class="category-pill">{{ discovery.category }}</p>
+
+                <div class="tag-row">
+                    {% for tag in discovery.tags.all %}
+                        <span class="tag-pill">#{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
                 <h2>{{ discovery.title }}</h2>
                 <p class="meta">{{ discovery.location }} · {{ discovery.date_seen }}</p>
                 <p>{{ discovery.description|truncatewords:24 }}</p>

@@ -4,6 +4,12 @@
 <section class="detail-layout">
     <article class="glass-panel">
         <p class="category-pill">{{ discovery.category }}</p>
+
+        <div class="tag-row">
+            {% for tag in discovery.tags.all %}
+                <span class="tag-pill">#{{ tag.name }}</span>
+            {% endfor %}
+        </div>
         <h1>{{ discovery.title }}</h1>
 
         <p class="meta">{{ discovery.location }} · {{ discovery.date_seen }}</p>

@@ -500,3 +500,24 @@ p {
         height: 210px;
     }
 }
+
+.tag-row {
+    /* Groups flexible discovery tags in a scannable way. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.25rem 0 1rem;
+}
+
+.tag-pill {
+    /* Shows many-to-many tags as small reusable labels. */
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.28rem 0.6rem;
+    background: rgba(246, 240, 226, 0.76);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
