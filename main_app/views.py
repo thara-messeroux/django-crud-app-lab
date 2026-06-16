@@ -42,6 +42,7 @@ def discovery_create(request):
             discovery = form.save(commit=False)
             discovery.user = request.user
             discovery.save()
+            form.save_m2m()
             return redirect('discovery-detail', discovery_id=discovery.id)
     else:
         form = DiscoveryForm()
