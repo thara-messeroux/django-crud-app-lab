@@ -380,7 +380,7 @@ button[type="submit"]:focus {
             </p>
         </div>
 
-        <form method="post" class="discovery-form">
+        <form method="post" enctype="multipart/form-data" class="discovery-form">
             {% csrf_token %}
 
             <div class="form-grid">
@@ -447,9 +447,16 @@ button[type="submit"]:focus {
 
                 <div class="form-field full-width">
                     <label for="{{ form.image_url.id_for_label }}">Image URL</label>
-                    <p class="field-note">Use a beautiful nature image URL to make the discovery card visual.</p>
+                    <p class="field-note">Paste an online image link, or upload a local image below.</p>
                     {{ form.image_url }}
                     {{ form.image_url.errors }}
+                </div>
+
+                <div class="form-field full-width">
+                    <label for="{{ form.image_upload.id_for_label }}">Upload Local Image</label>
+                    <p class="field-note">Choose an image from your computer for this discovery.</p>
+                    {{ form.image_upload }}
+                    {{ form.image_upload.errors }}
                 </div>
             </div>
 

@@ -35,7 +35,7 @@ def discovery_detail(request, discovery_id):
 def discovery_create(request):
     # Handles both showing the form and saving a new discovery.
     if request.method == 'POST':
-        form = DiscoveryForm(request.POST)
+        form = DiscoveryForm(request.POST, request.FILES)
 
         if form.is_valid():
             # Save later so we can attach the logged-in user first.

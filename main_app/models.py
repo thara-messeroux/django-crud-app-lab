@@ -50,6 +50,9 @@ class Discovery(models.Model):
     # Stores an optional image link without forcing users to upload a file.
     image_url = models.URLField(blank=True)
 
+    # Stores an optional uploaded image from the user's computer.
+    image_upload = models.ImageField(upload_to='discovery_images/', blank=True, null=True)
+
     # One category can organize many discoveries.
     # PROTECT prevents deleting a category if discoveries still use it.
     category = models.ForeignKey(Category, on_delete=models.PROTECT)

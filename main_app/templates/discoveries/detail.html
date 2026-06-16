@@ -24,7 +24,9 @@
             <strong>Preservation tip:</strong> {{ discovery.preservation_tip }}
         </div>
 
-        {% if discovery.image_url %}
+        {% if discovery.image_upload %}
+            <img class="detail-image" src="{{ discovery.image_upload.url }}" alt="{{ discovery.title }}">
+        {% elif discovery.image_url %}
             <img class="discovery-image" src="{{ discovery.image_url }}" alt="{{ discovery.title }}">
         {% endif %}
 

@@ -127,3 +127,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Sends protected pages to the login screen when needed.
 LOGIN_URL = 'login'
+
+# Local media uploads for user-uploaded discovery images.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

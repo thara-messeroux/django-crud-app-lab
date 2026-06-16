@@ -16,8 +16,11 @@
 <section class="card-grid">
     {% for discovery in discoveries %}
         <article class="discovery-card">
-            {% if discovery.image_url %}
-                <!-- Gives each discovery a strong visual journal feeling. -->
+            {% if discovery.image_upload %}
+                <!-- Shows uploaded image first when available. -->
+                <img class="card-image" src="{{ discovery.image_upload.url }}" alt="{{ discovery.title }}">
+            {% elif discovery.image_url %}
+                <!-- Falls back to image URL when no local image is uploaded. -->
                 <img class="card-image" src="{{ discovery.image_url }}" alt="{{ discovery.title }}">
             {% endif %}
 

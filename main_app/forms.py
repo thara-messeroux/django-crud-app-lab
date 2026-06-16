@@ -18,6 +18,7 @@ class DiscoveryForm(forms.ModelForm):
             'safety_tip',
             'preservation_tip',
             'image_url',
+            'image_upload',
         ]
 
         widgets = {
