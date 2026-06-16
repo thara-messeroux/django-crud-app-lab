@@ -363,7 +363,6 @@ This makes the app more meaningful than a simple collection tracker. It connects
 
 Potential next steps:
 
-* Add image upload support instead of image URLs
 * Add search and filtering by category or tag
 * Add public/private discovery settings
 * Add map locations for trail discoveries
